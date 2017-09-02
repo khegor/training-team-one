@@ -2,5 +2,9 @@
 By default your repository has one branch named master which is considered to be the definitive branch.
 We use branches to experiment and make edits before committing them to master.
 When you create a branch off the master branch, you’re making a copy, or snapshot,
+<<<<<<< HEAD
 kiss my metal shiny ass
 branch while you were working on your branch, you could pull in those updates.
+=======
+Okey. I solved first conflictbranch while you were working on your branch, you could pull in those updates.
+>>>>>>> 9f39fda87b88b4bf7ac1f4d49f074c454360b9c6
