@@ -4,3 +4,4 @@ We use branches to experiment and make edits before committing them to master.
 When you create a branch off the master branch, you’re making a copy, or snapshot,
 final change effort
 branch while you were working on your branch, you could pull in those updates.
+
