@@ -8,6 +8,34 @@ public class Road extends AbstractEntity {
     private String name;
     private Direction direction;
     private double dailyCarryingCapacity;
+    private int hotelsNumber;
+    private String hotelName;
+    private int semaphoresNumber;
+
+
+    public int getHotelsNumber() {
+        return hotelsNumber;
+    }
+
+    public void setHotelsNumber(int hotelsNumber) {
+        this.hotelsNumber = hotelsNumber;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
+
+    public int getSemaphoresNumber() {
+        return semaphoresNumber;
+    }
+
+    public void setSemaphoresNumber(int semaphoresNumber) {
+        this.semaphoresNumber = semaphoresNumber;
+    }
 
     public String getName() {
         return name;
