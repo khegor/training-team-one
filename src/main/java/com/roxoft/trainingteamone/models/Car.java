@@ -1,14 +1,13 @@
 package com.roxoft.trainingteamone.models;
 
 /**
- * Created by Esenin on 12.10.2017.
+ * Created by Esenin on 14.10.2017.
  */
-public abstract class Car extends AbstractEntity {
+public class Car extends AbstractEntity {
 
     private String model;
     private double maxWeigth;
-    private String color;
-    private int numberOfWheels;
+    private Transport transport;
 
     public String getModel() {
         return model;
@@ -26,19 +25,11 @@ public abstract class Car extends AbstractEntity {
         this.maxWeigth = maxWeigth;
     }
 
-    public String getColor() {
-        return color;
+    public Transport getTransport() {
+        return transport;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getNumberOfWheels() {
-        return numberOfWheels;
-    }
-
-    public void setNumberOfWheels(int numberOfWheels) {
-        this.numberOfWheels = numberOfWheels;
+    public void setTransport(Transport transport) {
+        this.transport = transport;
     }
 }

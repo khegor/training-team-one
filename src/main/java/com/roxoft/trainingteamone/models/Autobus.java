@@ -3,15 +3,33 @@ package com.roxoft.trainingteamone.models;
 /**
  * Created by Esenin on 14.10.2017.
  */
-public class Autobus extends Car {
+public class Autobus extends AbstractEntity{
 
-    private int maxPeoplesQuantity;
+    private String model;
+    private double maxWeight;
+    private Transport transport;
 
-    public int getMaxPeoplesQuantity() {
-        return maxPeoplesQuantity;
+    public String getModel() {
+        return model;
     }
 
-    public void setMaxPeoplesQuantity(int maxPeoplesQuantity) {
-        this.maxPeoplesQuantity = maxPeoplesQuantity;
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getMaxWeight() {
+        return maxWeight;
+    }
+
+    public void setMaxWeight(double maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+
+    public Transport getTransport() {
+        return transport;
+    }
+
+    public void setTransport(Transport transport) {
+        this.transport = transport;
     }
 }

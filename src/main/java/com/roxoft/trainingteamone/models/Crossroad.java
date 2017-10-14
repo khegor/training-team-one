@@ -8,7 +8,6 @@ import java.util.List;
 public class Crossroad extends AbstractEntity {
 
     private  String name;
-    private List<Road> roads;
 
     public String getName() {
         return name;
@@ -16,13 +15,5 @@ public class Crossroad extends AbstractEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Road> getRoads() {
-        return roads;
-    }
-
-    public void setRoads(List<Road> roads) {
-        this.roads = roads;
     }
 }

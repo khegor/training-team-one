@@ -6,36 +6,11 @@ package com.roxoft.trainingteamone.models;
 public class Road extends AbstractEntity {
 
     private String name;
-    private Direction direction;
     private double dailyCarryingCapacity;
-    private int hotelsNumber;
-    private String hotelName;
-    private int semaphoresNumber;
-
-
-    public int getHotelsNumber() {
-        return hotelsNumber;
-    }
-
-    public void setHotelsNumber(int hotelsNumber) {
-        this.hotelsNumber = hotelsNumber;
-    }
-
-    public String getHotelName() {
-        return hotelName;
-    }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
-    }
-
-    public int getSemaphoresNumber() {
-        return semaphoresNumber;
-    }
-
-    public void setSemaphoresNumber(int semaphoresNumber) {
-        this.semaphoresNumber = semaphoresNumber;
-    }
+    private Crossroad fromCrossroad;
+    private Crossroad toCrossroad;
+    private int hotelsCount;
+    private int semaphoresCount;
 
     public String getName() {
         return name;
@@ -45,14 +20,6 @@ public class Road extends AbstractEntity {
         this.name = name;
     }
 
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
-
     public double getDailyCarryingCapacity() {
         return dailyCarryingCapacity;
     }
@@ -60,4 +27,37 @@ public class Road extends AbstractEntity {
     public void setDailyCarryingCapacity(double dailyCarryingCapacity) {
         this.dailyCarryingCapacity = dailyCarryingCapacity;
     }
+
+    public Crossroad getFromCrossroad() {
+        return fromCrossroad;
+    }
+
+    public void setFromCrossroad(Crossroad fromCrossroad) {
+        this.fromCrossroad = fromCrossroad;
+    }
+
+    public Crossroad getToCrossroad() {
+        return toCrossroad;
+    }
+
+    public void setToCrossroad(Crossroad toCrossroad) {
+        this.toCrossroad = toCrossroad;
+    }
+
+    public int getHotelsCount() {
+        return hotelsCount;
+    }
+
+    public void setHotelsCount(int hotelsCount) {
+        this.hotelsCount = hotelsCount;
+    }
+
+    public int getSemaphoresCount() {
+        return semaphoresCount;
+    }
+
+    public void setSemaphoresCount(int semaphoresCount) {
+        this.semaphoresCount = semaphoresCount;
+    }
+
 }
