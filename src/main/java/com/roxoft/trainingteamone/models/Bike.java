@@ -3,33 +3,15 @@ package com.roxoft.trainingteamone.models;
 /**
  * Created by Esenin on 14.10.2017.
  */
-public class Bike extends AbstractEntity{
+public class Bike extends Transport{
 
-    private String model;
-    private double maxWeigth;
-    private Transport transport;
+    private String speedControlType;
 
-    public String getModel() {
-        return model;
+    public String getSpeedControlType() {
+        return speedControlType;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public double getMaxWeigth() {
-        return maxWeigth;
-    }
-
-    public void setMaxWeigth(double maxWeigth) {
-        this.maxWeigth = maxWeigth;
-    }
-
-    public Transport getTransport() {
-        return transport;
-    }
-
-    public void setTransport(Transport transport) {
-        this.transport = transport;
+    public void setSpeedControlType(String speedControlType) {
+        this.speedControlType = speedControlType;
     }
 }

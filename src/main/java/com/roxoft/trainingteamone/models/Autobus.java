@@ -3,33 +3,15 @@ package com.roxoft.trainingteamone.models;
 /**
  * Created by Esenin on 14.10.2017.
  */
-public class Autobus extends AbstractEntity{
+public class Autobus extends Transport{
 
-    private String model;
-    private double maxWeight;
-    private Transport transport;
+    private String punchType;
 
-    public String getModel() {
-        return model;
+    public String getPunchType() {
+        return punchType;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public double getMaxWeight() {
-        return maxWeight;
-    }
-
-    public void setMaxWeight(double maxWeight) {
-        this.maxWeight = maxWeight;
-    }
-
-    public Transport getTransport() {
-        return transport;
-    }
-
-    public void setTransport(Transport transport) {
-        this.transport = transport;
+    public void setPunchType(String punchType) {
+        this.punchType = punchType;
     }
 }

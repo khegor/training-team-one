@@ -1,5 +1,7 @@
 package com.roxoft.trainingteamone.models;
 
+import java.util.List;
+
 /**
  * Created by Esenin on 12.10.2017.
  */
@@ -9,7 +11,8 @@ public class Road extends AbstractEntity {
     private double dailyCarryingCapacity;
     private Crossroad fromCrossroad;
     private Crossroad toCrossroad;
-    private int hotelsCount;
+    private List<Hotel> hotels;
+    private List<CarStation> carStations;
     private int semaphoresCount;
 
     public String getName() {
@@ -44,12 +47,20 @@ public class Road extends AbstractEntity {
         this.toCrossroad = toCrossroad;
     }
 
-    public int getHotelsCount() {
-        return hotelsCount;
+    public List<Hotel> getHotels() {
+        return hotels;
     }
 
-    public void setHotelsCount(int hotelsCount) {
-        this.hotelsCount = hotelsCount;
+    public void setHotels(List<Hotel> hotels) {
+        this.hotels = hotels;
+    }
+
+    public List<CarStation> getCarStations() {
+        return carStations;
+    }
+
+    public void setCarStations(List<CarStation> carStations) {
+        this.carStations = carStations;
     }
 
     public int getSemaphoresCount() {
