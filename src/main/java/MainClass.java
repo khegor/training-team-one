@@ -1,5 +1,9 @@
 import com.roxoft.trainingteamone.models.Autobus;
+import com.roxoft.trainingteamone.models.Bike;
+import com.roxoft.trainingteamone.models.Car;
 import com.roxoft.trainingteamone.services.AutobusService;
+import com.roxoft.trainingteamone.services.BikeService;
+import com.roxoft.trainingteamone.services.CarService;
 import org.apache.log4j.BasicConfigurator;
 
 /**
@@ -9,8 +13,6 @@ public class MainClass {
     public static void main(String args[]){
 
         BasicConfigurator.configure();
-//        AutobusService autobusService = new AutobusService();
-//        Autobus autobus = autobusService.getAutobusById(1);
-//        System.out.println(autobus.getModel());
+//       
     }
 }
