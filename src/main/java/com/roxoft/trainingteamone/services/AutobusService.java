@@ -25,7 +25,7 @@ public class AutobusService {
     }
 
     public List<Autobus> getAllAutobuses() {
-        return null;
+        return autobusDao.getAllAutobuses();
     }
 
     public void updateAutobus(Autobus autobus) {

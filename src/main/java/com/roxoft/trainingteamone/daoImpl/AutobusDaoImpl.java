@@ -30,7 +30,11 @@ public class AutobusDaoImpl implements AutobusDao {
     }
 
     public List<Autobus> getAllAutobuses() {
-        return null;
+
+        SqlSession sqlSession = SessionFactory.getSession();
+        List<Autobus> autobuses = sqlSession.selectList("autobusMapper.getAllAutobuses");
+        sqlSession.close();
+        return autobuses;
     }
 
     public void updateAutobus(Autobus autobus) {

@@ -22,6 +22,19 @@
         INSERT INTO waydb.autobuses (MODEL, MAX_WEIGHT, PUNCH_TYPE, ADDITIONAL_INFORMATION_ID)
         VALUES (#{model}, #{maxWeight}, #{punchType}, #{additionalInformation.id});
     </insert>
+    <select id="getAllAutobuses" resultMap="autobusMapper">
+        SELECT
+            A.ID          AS AUTOBUS_ID,
+            A.MODEL,
+            A.MAX_WEIGHT,
+            A.PUNCH_TYPE,
+            A.CREATED_AT  AS AUTOBUS_CREATED_AT,
+            AI.ID
+                          AS ADDITIONAL_INFORMATION_ID,
+            AI.TYPE,
+            AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM waydb.autobuses A LEFT JOIN waydb.additional_informations AI ON A.ADDITIONAL_INFORMATION_ID = AI.ID
+    </select>
     <resultMap id="autobusMapper" type="com.roxoft.trainingteamone.models.Autobus" autoMapping="false">
         <id property="id" column="AUTOBUS_ID"/>
         <result property="model" column="MODEL"/>
