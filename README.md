@@ -1,2 +1,2 @@
 # traning-team-one
-roxoft-summer-tranings-2017
+roxoft-summer-tranings- 2017
