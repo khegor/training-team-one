@@ -10,8 +10,8 @@ import java.util.List;
 public interface BikeDao {
 
     void createBike(Bike bike);
-    BikeDao getBikeById(long id);
-    List<BikeDao> getAllBikes();
-    void updateBike(BikeDao bikeDao);
+    Bike getBikeById(long id);
+    List<Bike> getAllBikes();
+    void updateBike(Bike bike);
     void deleteBike(long id);
 }
