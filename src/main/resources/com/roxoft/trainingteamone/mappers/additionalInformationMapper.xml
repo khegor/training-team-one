@@ -9,6 +9,9 @@
     <insert id="createAdditionalInformation" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO waydb.additional_informations(TYPE) VALUES(#{type})
     </insert>
+    <update id="updateAdditionalInformationMapper" keyProperty="id" useGeneratedKeys="true">
+        UPDATE waydb.additional_informations SET TYPE = #{type}
+    </update>
     <resultMap id="additionalInformationResultMap" type="com.roxoft.trainingteamone.models.AdditionalInformation" autoMapping="false">
         <id property="id" column="ADDITIONAL_INFORMATION_ID"/>
         <result property="type" column="TYPE"/>

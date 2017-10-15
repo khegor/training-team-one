@@ -26,11 +26,21 @@ public class MainClass {
 //        autobusService.createAutobus(autobus);
 //        System.out.println(autobus.getId() + " " + additionalInformation.getId());
 
-        AutobusService autobusService = new AutobusService();
-        List<Autobus> autobuses= autobusService.getAllAutobuses();
-        for(Autobus a : autobuses){
-            System.out.println(a.getModel() + " " + a.getAdditionalInformation().getType());
-        }
+//        AutobusService autobusService = new AutobusService();
+//        List<Autobus> autobuses= autobusService.getAllAutobuses();
+//        for(Autobus a : autobuses){
+//            System.out.println(a.getModel() + " " + a.getAdditionalInformation().getType());
+//        }
 
+//        AutobusService autobusService = new AutobusService();
+//        Autobus autobus = new Autobus();
+//        AdditionalInformation additionalInformation = new AdditionalInformation();
+//        additionalInformation.setType(Type.PUBLIC);
+//        autobus = autobusService.getAutobusById(1);
+//        autobus.setModel("Jaguar");
+//        autobusService.updateAutobus(autobus);
+//        System.out.println(autobus.getModel());
+
+        
     }
 }

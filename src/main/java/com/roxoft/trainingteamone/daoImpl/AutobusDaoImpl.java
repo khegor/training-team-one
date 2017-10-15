@@ -39,6 +39,10 @@ public class AutobusDaoImpl implements AutobusDao {
 
     public void updateAutobus(Autobus autobus) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.update("autobusMapper.updateAutobus", autobus);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     public void deleteAutobus(long id) {

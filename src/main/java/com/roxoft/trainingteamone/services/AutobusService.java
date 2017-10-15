@@ -29,7 +29,7 @@ public class AutobusService {
     }
 
     public void updateAutobus(Autobus autobus) {
-
+        autobusDao.updateAutobus(autobus);
     }
 
     public void deleteAutobus(long id) {

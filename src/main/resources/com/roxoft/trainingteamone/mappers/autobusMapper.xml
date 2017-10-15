@@ -35,6 +35,11 @@
             AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
         FROM waydb.autobuses A LEFT JOIN waydb.additional_informations AI ON A.ADDITIONAL_INFORMATION_ID = AI.ID
     </select>
+    <update id="updateAutobus">
+        UPDATE waydb.autobuses
+        SET MODEL                     = #{model}, MAX_WEIGHT = #{maxWeight}, PUNCH_TYPE = #{punchType},
+            ADDITIONAL_INFORMATION_ID = #{additionalInformation.id} WHERE ID = #{id}
+    </update>
     <resultMap id="autobusMapper" type="com.roxoft.trainingteamone.models.Autobus" autoMapping="false">
         <id property="id" column="AUTOBUS_ID"/>
         <result property="model" column="MODEL"/>
