@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="carMapper">
+    <select id="getCarById" resultMap="carMapper">
+        SELECT
+        C.ID          AS CAR_ID,
+        C.MODEL,
+        C.MAX_WEIGHT,
+        C.CLIMAT_CONTROL_TYPE,
+        C.CREATED_AT  AS CAR_CREATED_AT,
+        AI.ID
+        AS ADDITIONAL_INFORMATION_ID,
+        AI.TYPE,
+        AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM
+        waydb.cars C LEFT JOIN additional_informations AI ON C.ADDITIONAL_INFORMATION_ID = AI.ID
+        WHERE C.ID = #{id};
+    </select>
+    <resultMap id="carMapper" type="com.roxoft.trainingteamone.models.Car" autoMapping="false">
+        <id property="id" column="CAR_ID"/>
+        <result property="model" column="MODEL"/>
+        <result property="maxWeight" column="MAX_WEIGHT"/>
+        <result property="climatControlType" column="CLIMAT_CONTROL_TYPE"/>
+        <result property="createdAt" column="CAR_CREATED_AT"/>
+        <association property="additionalInformation"
+                     resultMap="additionalInformationMapper.additionalInformationResultMap"/>
+    </resultMap>
+</mapper>

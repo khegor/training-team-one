@@ -4,8 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="autobusMapper">
     <select id="getAutobusById" resultMap="autobusMapper">
-        SELECT A.ID AS AUTOBUS_ID, A.MODEL, A.MAX_WEIGHT, A.PUNCH_TYPE, A.CREATED_AT AS AUTOBUS_CREATED_AT, AI.ID AS ADDITIONAL_INFORMATION_ID, AI.TYPE,
-            AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT FROM waydb.autobuses A LEFT JOIN additional_informations AI ON A.ADDITIONAL_INFORMATION_ID = AI.ID WHERE A.ID = #{id};
+        SELECT
+            A.ID          AS AUTOBUS_ID,
+            A.MODEL,
+            A.MAX_WEIGHT,
+            A.PUNCH_TYPE,
+            A.CREATED_AT  AS AUTOBUS_CREATED_AT,
+            AI.ID
+                          AS ADDITIONAL_INFORMATION_ID,
+            AI.TYPE,
+            AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM
+            waydb.autobuses A LEFT JOIN additional_informations AI ON A.ADDITIONAL_INFORMATION_ID = AI.ID
+        WHERE A.ID = #{id};
     </select>
     <resultMap id="autobusMapper" type="com.roxoft.trainingteamone.models.Autobus" autoMapping="false">
         <id property="id" column="AUTOBUS_ID"/>
@@ -13,7 +24,8 @@
         <result property="maxWeight" column="MAX_WEIGHT"/>
         <result property="punchType" column="PUNCH_TYPE"/>
         <result property="createdAt" column="AUTOBUS_CREATED_AT"/>
-        <association property="additionalInformation" resultMap="additionalInformationMapper.additionalInformationResultMap"/>
+        <association property="additionalInformation"
+                     resultMap="additionalInformationMapper.additionalInformationResultMap"/>
     </resultMap>
 
 </mapper>

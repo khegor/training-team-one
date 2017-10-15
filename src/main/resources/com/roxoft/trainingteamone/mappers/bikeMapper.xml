@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bikeMapper">
+    <select id="getCarById" resultMap="carMapper">
+        SELECT
+            B.ID          AS BIKE_ID,
+            B.MODEL,
+            B.MAX_WEIGHT,
+            B.SPEED_CONTROL_TYPE,
+            B.CREATED_AT  AS BIKE_CREATED_AT,
+            AI.ID         AS ADDITIONAL_INFORMATION_ID,
+            AI.TYPE,
+            AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM waydb.bikes B LEFT JOIN additional_informations AI ON B.ADDITIONAL_INFORMATION_ID = AI.ID
+        WHERE B.ID = #{id};
+    </select>
+    <resultMap id="carMapper" type="com.roxoft.trainingteamone.models.Bike" autoMapping="false">
+        <id property="id" column="BIKE_ID"/>
+        <result property="model" column="MODEL"/>
+        <result property="maxWeight" column="MAX_WEIGHT"/>
+        <result property="speedControlType" column="SPEED_CONTROL_TYPE"/>
+        <result property="createdAt" column="BIKE_CREATED_AT"/>
+        <association property="additionalInformation" resultMap="additionalInformationMapper.additionalInformationResultMap"/>
+    </resultMap>
+</mapper>

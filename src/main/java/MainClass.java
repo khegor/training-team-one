@@ -9,8 +9,8 @@ public class MainClass {
     public static void main(String args[]){
 
         BasicConfigurator.configure();
-        AutobusService autobusService = new AutobusService();
-        Autobus autobus = autobusService.getAutobusById(1);
-        System.out.println(autobus.getModel());
+//        AutobusService autobusService = new AutobusService();
+//        Autobus autobus = autobusService.getAutobusById(1);
+//        System.out.println(autobus.getModel());
     }
 }
