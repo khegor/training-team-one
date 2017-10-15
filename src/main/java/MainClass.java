@@ -41,6 +41,7 @@ public class MainClass {
 //        autobusService.updateAutobus(autobus);
 //        System.out.println(autobus.getModel());
 
-        
+//        AutobusService autobusService = new AutobusService();
+//        autobusService.deleteAutobus(1);
     }
 }

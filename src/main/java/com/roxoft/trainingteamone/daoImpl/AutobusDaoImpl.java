@@ -47,5 +47,9 @@ public class AutobusDaoImpl implements AutobusDao {
 
     public void deleteAutobus(long id) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.delete("autobusMapper.deleteAutobus", id);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

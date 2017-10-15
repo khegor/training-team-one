@@ -33,6 +33,6 @@ public class AutobusService {
     }
 
     public void deleteAutobus(long id) {
-
+        autobusDao.deleteAutobus(id);
     }
 }

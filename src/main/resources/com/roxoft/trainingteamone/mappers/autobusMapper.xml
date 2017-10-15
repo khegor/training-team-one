@@ -40,6 +40,9 @@
         SET MODEL                     = #{model}, MAX_WEIGHT = #{maxWeight}, PUNCH_TYPE = #{punchType},
             ADDITIONAL_INFORMATION_ID = #{additionalInformation.id} WHERE ID = #{id}
     </update>
+    <delete id="deleteAutobus" >
+        DELETE FROM waydb.autobuses WHERE ID = #{id}
+    </delete>
     <resultMap id="autobusMapper" type="com.roxoft.trainingteamone.models.Autobus" autoMapping="false">
         <id property="id" column="AUTOBUS_ID"/>
         <result property="model" column="MODEL"/>
