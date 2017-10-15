@@ -12,9 +12,12 @@ import java.util.List;
 public class AutobusService {
 
     AutobusDao autobusDao = new AutobusDaoImpl();
+    AdditionalInformationService additionalInformationService = new AdditionalInformationService();
 
-    public void createAutobus(Autobus autobus) {
-
+    public Autobus createAutobus(Autobus autobus) {
+        additionalInformationService.createAdditionalInformation(autobus.getAdditionalInformation());
+        autobusDao.createAutobus(autobus);
+        return autobus;
     }
 
     public Autobus getAutobusById(long id) {

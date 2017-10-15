@@ -18,6 +18,10 @@
             waydb.autobuses A LEFT JOIN additional_informations AI ON A.ADDITIONAL_INFORMATION_ID = AI.ID
         WHERE A.ID = #{id};
     </select>
+    <insert id="createAutobus" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO waydb.autobuses (MODEL, MAX_WEIGHT, PUNCH_TYPE, ADDITIONAL_INFORMATION_ID)
+        VALUES (#{model}, #{maxWeight}, #{punchType}, #{additionalInformation.id});
+    </insert>
     <resultMap id="autobusMapper" type="com.roxoft.trainingteamone.models.Autobus" autoMapping="false">
         <id property="id" column="AUTOBUS_ID"/>
         <result property="model" column="MODEL"/>

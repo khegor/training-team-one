@@ -1,6 +1,5 @@
-import com.roxoft.trainingteamone.models.Autobus;
-import com.roxoft.trainingteamone.models.Bike;
-import com.roxoft.trainingteamone.models.Car;
+import com.roxoft.trainingteamone.dao.AutobusDao;
+import com.roxoft.trainingteamone.models.*;
 import com.roxoft.trainingteamone.services.AutobusService;
 import com.roxoft.trainingteamone.services.BikeService;
 import com.roxoft.trainingteamone.services.CarService;
@@ -13,6 +12,17 @@ public class MainClass {
     public static void main(String args[]){
 
         BasicConfigurator.configure();
-//       
+
+        AutobusService autobusService = new AutobusService();
+        Autobus autobus = new Autobus();
+        AdditionalInformation additionalInformation = new AdditionalInformation();
+        additionalInformation.setType(Type.PUBLIC);
+        autobus.setModel("MAZ");
+        autobus.setMaxWeight(20);
+        autobus.setPunchType("manual");
+        autobus.setAdditionalInformation(additionalInformation);
+        autobusService.createAutobus(autobus);
+        System.out.println(autobus.getId() + " " + additionalInformation.getId());
+
     }
 }

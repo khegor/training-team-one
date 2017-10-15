@@ -16,6 +16,9 @@ public class AutobusDaoImpl implements AutobusDao {
 
     public void createAutobus(Autobus autobus) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.insert("autobusMapper.createAutobus", autobus);
+        sqlSession.close();
     }
 
     public Autobus getAutobusById(long id) {
