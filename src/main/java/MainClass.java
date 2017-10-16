@@ -1,5 +1,6 @@
 import com.roxoft.trainingteamone.dao.AutobusDao;
 import com.roxoft.trainingteamone.models.*;
+import com.roxoft.trainingteamone.services.AdditionalInformationService;
 import com.roxoft.trainingteamone.services.AutobusService;
 import com.roxoft.trainingteamone.services.BikeService;
 import com.roxoft.trainingteamone.services.CarService;
@@ -43,5 +44,8 @@ public class MainClass {
 
 //        AutobusService autobusService = new AutobusService();
 //        autobusService.deleteAutobus(1);
+        AdditionalInformationService additionalInformationService =  new AdditionalInformationService();
+        AdditionalInformation additionalInformation = additionalInformationService.getAdditionalInformationById(2);
+        System.out.println(additionalInformation.getType());
     }
 }
