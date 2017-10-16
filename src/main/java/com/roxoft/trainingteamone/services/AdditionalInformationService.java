@@ -14,24 +14,36 @@ public class AdditionalInformationService {
 
     private AdditionalInformationImpl additionalInformationDao = new AdditionalInformationImpl();
 
+
     public AdditionalInformation createAdditionalInformation(AdditionalInformation additionalInformation) {
+
         additionalInformationDao.createAdditionalInformation(additionalInformation);
         return additionalInformation;
     }
 
+
     public AdditionalInformation getAdditionalInformationById(long id) {
-        return null;
+
+        return additionalInformationDao.getAdditionalInformationById(id);
     }
+
 
     public List<AdditionalInformation> getAllAdditionalInformations() {
-        return null;
+
+        return additionalInformationDao.getAllAdditionalInformations();
     }
+
 
     public AdditionalInformation updateAdditionalInformation(AdditionalInformation additionalInformation) {
-        return null;
+
+        additionalInformationDao.updateAdditionalInformation(additionalInformation);
+        return additionalInformation;
     }
 
+
     public void deleteAdditionalInformation(long id) {
+
+        additionalInformationDao.deleteAdditionalInformation(id);
 
     }
 }

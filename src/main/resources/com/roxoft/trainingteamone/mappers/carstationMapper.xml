@@ -3,69 +3,69 @@
 
 <mapper namespace="com.roxoft.trainingteamone.mappers.carstationMapper">
 
-	<insert id="createCarStation" useGeneratedKeys="true" keyProperty="id">
+    <insert id="createCarStation" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
-			INSERT INTO car_stations (NAME,ROADS_ID,CREATED_AT)
-			VALUES (
-				#{name},
-				#{road.id},
-				#{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
-			)
-		]]>
+        INSERT INTO car_stations (NAME, ROADS_ID, CREATED_AT)
+        VALUES (
+            #{name},
+            #{road.id},
+            #{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
+        )
+        ]]>
 	</insert>
 
-	<sql id="getCarStation">
+    <sql id="getCarStation">
 		<![CDATA[
-			SELECT
-			    cs.ID,
-			    cs.NAME
-			FROM
-				car_stations cs
-		]]>
+        SELECT
+            cs.ID,
+            cs.NAME
+        FROM
+            car_stations cs
+        ]]>
 	</sql>
 
-	<select id="getCarStationById" resultMap="CarStationResultMap">
-		<include refid="getCarStation" />
-		<![CDATA[
+    <select id="getCarStationById" resultMap="CarStationResultMap">
+        <include refid="getCarStation"/>
+        <![CDATA[
 			WHERE ID = #{id}
 		]]>
-	</select>		
+    </select>
 
-	<select id="getCarStationsByRoadId" resultMap="CarStationResultMap">
-		<include refid="getCarStation" />
-		<![CDATA[
+    <select id="getCarStationsByRoadId" resultMap="CarStationResultMap">
+        <include refid="getCarStation"/>
+        <![CDATA[
 			WHERE ROADS_ID = #{id}
 		]]>
-	</select>
-	
-	<select id="getAllCarStations" resultMap="CarStationResultMap">
-		<include refid="getCarStation" />
-	</select>
+    </select>
 
-	<update id="updateCarStation">
+    <select id="getAllCarStations" resultMap="CarStationResultMap">
+        <include refid="getCarStation"/>
+    </select>
+
+    <update id="updateCarStation">
 		<![CDATA[
-        	UPDATE
-        		car_stations
-          	SET
-          		NAME = #{name}
-          	WHERE
-			 	ID = #{id}
+        UPDATE
+            car_stations
+        SET
+            NAME = #{name}
+        WHERE
+            ID = #{id}
         ]]>
 	</update>
-	
-	 <delete id="deleteCarStation">
+
+    <delete id="deleteCarStation">
 		<![CDATA[
-        	DELETE
-          	FROM 
-          		car_stations
-          	WHERE
-          		ID = #{id}
+        DELETE
+        FROM
+            car_stations
+        WHERE
+            ID = #{id}
         ]]>
     </delete>
-	
-	<resultMap type="com.roxoft.trainingteamone.models.CarStation" id="CarStationResultMap" autoMapping="false">
-		<id column="ID" property="id" />
-		<result column="NAME" property="name" />
-	</resultMap>
+
+    <resultMap type="com.roxoft.trainingteamone.models.CarStation" id="CarStationResultMap" autoMapping="false">
+        <id column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+    </resultMap>
 
 </mapper>

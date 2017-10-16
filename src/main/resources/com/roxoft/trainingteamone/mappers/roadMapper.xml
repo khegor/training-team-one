@@ -20,18 +20,16 @@
 	<sql id="getRoad">
 		<![CDATA[
 			SELECT
-			    r.ID,
-			    r.NAME,
-			    r.DAILY_CAPACITY,
-				r.SEMAPHORES_COUNT
+			r.ID,
+			r.NAME,
+			r.DAILY_CAPACITY,
+			r.SEMAPHORES_COUNT
 			FROM
-				roads r
+						roads r
 					LEFT JOIN crossroads cr1 ON
 				        cr1.ID = r.FROM_CROSSROAD_ID
 				    LEFT JOIN crossroads cr2 ON
-				        cr2.ID = r.TO_CROSSROAD_ID
-
-		]]>
+				        cr2.ID = r.TO_CROSSROAD_ID		]]>
 	</sql>
 
 	<select id="getRoadById" resultMap="RoadResultMap">

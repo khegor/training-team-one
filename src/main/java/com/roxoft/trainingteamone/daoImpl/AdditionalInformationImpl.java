@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class AdditionalInformationImpl implements AdditionalInformationDao {
     public void createAdditionalInformation(AdditionalInformation additionalInformation) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         sqlSession.insert("additionalInformationMapper.createAdditionalInformation", additionalInformation);
         sqlSession.commit();
@@ -19,18 +20,35 @@ public class AdditionalInformationImpl implements AdditionalInformationDao {
     }
 
     public AdditionalInformation getAdditionalInformationById(long id) {
-        return null;
+
+        SqlSession sqlSession = SessionFactory.getSession();
+        AdditionalInformation additionalInformation = sqlSession.selectOne("additionalInformationMapper.getAdditionalInformationById", id);
+        sqlSession.commit();
+        sqlSession.close();
+        return additionalInformation;
     }
 
     public List<AdditionalInformation> getAllAdditionalInformations() {
-        return null;
+
+        SqlSession sqlSession = SessionFactory.getSession();
+        List<AdditionalInformation> additionalInformations = sqlSession.selectList("additionalInformationMapper.getAllAdditionalInformations");
+        sqlSession.close();
+        return additionalInformations;
     }
 
     public void updateAdditionalInformation(AdditionalInformation additionalInformation) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.update("additionalInformationMapper.updateAdditionalInformation", additionalInformation);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     public void deleteAdditionalInformation(long id) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.delete("additionalInformationMapper.deleteAdditionalInformation", id);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

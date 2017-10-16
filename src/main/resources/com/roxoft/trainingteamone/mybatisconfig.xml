@@ -14,7 +14,7 @@
                 <property name="driver" value="${driver}"/>
                 <property name="url" value="${url}"/>
                 <property name="username" value="${username}"/>
-                <property name="password" value="${password}"/>
+                <property name="password" value="${ndb.password}"/>
             </dataSource>
         </environment>
     </environments>

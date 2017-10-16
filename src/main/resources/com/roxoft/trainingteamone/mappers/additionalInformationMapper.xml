@@ -4,17 +4,35 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="additionalInformationMapper">
     <select id="getAdditionalInformationById" resultMap="additionalInformationResultMap">
-        SELECT A.ID AS ADDITIONAL_INFORMATION_ID, A.TYPE, A.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT FROM waydb.additional_informations A WHERE A.ID = #{id}
+        SELECT
+            A.ID         AS ADDITIONAL_INFORMATION_ID,
+            A.TYPE,
+            A.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM waydb.additional_informations A
+        WHERE A.ID = #{id}
     </select>
     <insert id="createAdditionalInformation" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO waydb.additional_informations(TYPE) VALUES(#{type})
+        INSERT INTO waydb.additional_informations (TYPE) VALUES (#{type})
     </insert>
     <update id="updateAdditionalInformationMapper" keyProperty="id" useGeneratedKeys="true">
-        UPDATE waydb.additional_informations SET TYPE = #{type}
+        UPDATE waydb.additional_informations
+        SET TYPE = #{type}
     </update>
-    <resultMap id="additionalInformationResultMap" type="com.roxoft.trainingteamone.models.AdditionalInformation" autoMapping="false">
+    <delete id="deleteAdditionalInformation">
+        DELETE FROM waydb.additional_informations
+        WHERE ID = #{id}
+    </delete>
+    <select id="getAllAdditionalInformation" resultMap="additionalInformationResultMap">
+        SELECT
+            AI.ID         AS ADDITIONAL_INFORMATION_ID,
+            AI.TYPE,
+            AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM waydb.additional_informations AI
+    </select>
+    <resultMap id="additionalInformationResultMap" type="com.roxoft.trainingteamone.models.AdditionalInformation"
+               autoMapping="false">
         <id property="id" column="ADDITIONAL_INFORMATION_ID"/>
         <result property="type" column="TYPE"/>
-        <result property="createdAt" column="ADDITIONAL_INFORMATION_AT"/>
+        <result property="createdAt" column="ADDITIONAL_INFORMATION_CREATED_AT"/>
     </resultMap>
 </mapper>
