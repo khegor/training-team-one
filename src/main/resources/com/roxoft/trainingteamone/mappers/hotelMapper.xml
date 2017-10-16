@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.roxoft.trainingteamone.mappers.hotelMapper">
+
+	<insert id="createHotel" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO hotels (NAME,ROADS_ID,CREATED_AT)
+			VALUES (
+				#{name},
+				#{road.id},
+				#{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
+			)
+		]]>
+	</insert>
+
+	<sql id="getHotel">
+		<![CDATA[
+			SELECT
+			    h.ID,
+			    h.NAME
+			FROM
+				hotels h
+		]]>
+	</sql>
+
+	<select id="getHotelsByRoadId" resultMap="HotelResultMap">
+		<include refid="getHotel" />
+		<![CDATA[
+			WHERE ROADS_ID = #{id}
+		]]>
+	</select>
+	
+	<select id="getHotelById" resultMap="HotelResultMap">
+		<include refid="getHotel" />
+		<![CDATA[
+			WHERE ID = #{id}
+		]]>
+	</select>
+
+	<select id="getAllHotels" resultMap="HotelResultMap">
+		<include refid="getHotel" />
+	</select>
+
+	<update id="updateHotel">
+		<![CDATA[
+        	UPDATE
+        		hotels
+          	SET
+          		NAME = #{name}
+          	WHERE
+			 	ID = #{id}
+        ]]>
+	</update>
+	
+	 <delete id="deleteHotel">
+		<![CDATA[
+        	DELETE
+          	FROM 
+          		hotels
+          	WHERE
+          		ID = #{id}
+        ]]>
+    </delete>
+	
+	<resultMap type="com.roxoft.trainingteamone.models.Hotel" id="HotelResultMap" autoMapping="false">
+		<id column="ID" property="id" />
+		<result column="NAME" property="name" />
+	</resultMap>
+
+</mapper>

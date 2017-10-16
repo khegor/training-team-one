@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.roxoft.trainingteamone.mappers.crossroadMapper">
+
+	<insert id="createCrossroad" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO crossroads (NAME,CREATED_AT)
+			VALUES (
+				#{name},
+				#{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
+			)
+		]]>
+	</insert>
+
+	<sql id="getCrossroad">
+		<![CDATA[
+			SELECT
+			    cr.ID,
+			    cr.NAME
+			FROM
+				crossroads cr
+		]]>
+	</sql>
+
+	<select id="getCrossroadById" resultMap="CrossroadResultMap">
+		<include refid="getCrossroad" />
+		<![CDATA[
+			WHERE ID = #{id}
+		]]>
+	</select>
+	
+	<select id="getAllCrossroads" resultMap="CrossroadResultMap">
+		<include refid="getCrossroad" />
+	</select>
+
+	<update id="updateCrossroad">
+		<![CDATA[
+        	UPDATE
+        		crossroads
+          	SET
+          		NAME = #{name}
+          	WHERE
+			 	ID = #{id}
+        ]]>
+	</update>
+	
+	 <delete id="deleteCrossroad">
+		<![CDATA[
+        	DELETE
+          	FROM 
+          		crossroads
+          	WHERE
+          		ID = #{id}
+        ]]>
+    </delete>
+	
+	<resultMap type="com.roxoft.trainingteamone.models.Crossroad" id="CrossroadResultMap" autoMapping="false">
+		<id column="ID" property="id" />
+		<result column="NAME" property="name" />
+	</resultMap>
+
+</mapper>
