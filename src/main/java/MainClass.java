@@ -1,4 +1,5 @@
 import com.roxoft.trainingteamone.dao.AutobusDao;
+import com.roxoft.trainingteamone.daoImpl.RoadDaoImpl;
 import com.roxoft.trainingteamone.models.*;
 import com.roxoft.trainingteamone.services.*;
 import org.apache.log4j.BasicConfigurator;
@@ -44,8 +45,12 @@ public class MainClass {
 
 
 
-        AdditionalInformationService additionalInformationService = new AdditionalInformationService();
-        AdditionalInformation additionalInformation = additionalInformationService.getAdditionalInformationById(2);
-        System.out.println(additionalInformation.getType());
+//        AdditionalInformationService additionalInformationService = new AdditionalInformationService();
+//        AdditionalInformation additionalInformation = additionalInformationService.getAdditionalInformationById(2);
+//        System.out.println(additionalInformation.getType());
+
+
+
+
     }
 }

@@ -3,7 +3,7 @@ package com.roxoft.trainingteamone.models;
 /**
  * Created by Esenin on 14.10.2017.
  */
-public class CarStation {
+public class CarStation extends AbstractEntity{
 
     private String name;
 

@@ -20,20 +20,20 @@
 	<sql id="getRoad">
 		<![CDATA[
 			SELECT
-			    r.ID,
-			    r.NAME,
-			    r.DAILY_CAPACITY,
-				r.SEMAPHORES_COUNT
+			r.ID,
+			r.NAME,
+			r.DAILY_CAPACITY,
+			r.SEMAPHORES_COUNT
 			FROM
-				roads r
-					LEFT JOIN crossroads cr ON
-				        cr.ID = r.FROM_CROSSROAD_ID
-				    LEFT JOIN crossroads cr ON
-				        cr.ID = r.TO_CROSSROAD_ID
-				    LEFT JOIN hotels h ON
-				        h.ROADS_ID = r.ID
-				    LEFT JOIN car_stations cs ON 
-					    cs.ROADS_ID = r.ID
+			roads r
+			LEFT JOIN crossroads cr ON
+			cr.ID = r.FROM_CROSSROAD_ID
+			LEFT JOIN crossroads cr ON
+			cr.ID = r.TO_CROSSROAD_ID
+			LEFT JOIN hotels h ON
+			h.ROADS_ID = r.ID
+			LEFT JOIN car_stations cs ON
+			cs.ROADS_ID = r.ID
 		]]>
 	</sql>
 

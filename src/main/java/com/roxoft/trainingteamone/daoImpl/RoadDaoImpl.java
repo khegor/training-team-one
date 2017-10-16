@@ -26,6 +26,7 @@ public class RoadDaoImpl implements RoadDao {
     public Road getRoadById(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
         try{
+
         	return sqlSession.selectOne("com.roxoft.trainingteamone.mappers.roadMapper.getRoadById", id);
     	}
 		finally {
