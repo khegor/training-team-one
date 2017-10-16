@@ -49,8 +49,13 @@ public class MainClass {
 //        AdditionalInformation additionalInformation = additionalInformationService.getAdditionalInformationById(2);
 //        System.out.println(additionalInformation.getType());
 
+//       BikeService bikeService = new BikeService();
+//       bikeService.deleteBike(2);
 
 
+        CarService carService = new CarService();
+        Car car = carService.getCarById(1);
+        System.out.println(car.getModel());
 
     }
 }

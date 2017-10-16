@@ -18,6 +18,31 @@
         waydb.cars C LEFT JOIN additional_informations AI ON C.ADDITIONAL_INFORMATION_ID = AI.ID
         WHERE C.ID = #{id};
     </select>
+    <insert id="createCar" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO waydb.cars (MODEL, MAX_WEIGHT, CLIMAT_CONTROL_TYPE, ADDITIONAL_INFORMATION_ID)
+        VALUES (#{model}, #{maxWeight}, #{climatControlType}, #{additionalInformation.id});
+    </insert>
+    <select id="getAllCars" resultMap="carMapper">
+        SELECT
+        C.ID          AS CAR_ID,
+        C.MODEL,
+        C.MAX_WEIGHT,
+        C.CLIMAT_CONTROL_TYPE,
+        C.CREATED_AT  AS CAR_CREATED_AT,
+        AI.ID
+        AS ADDITIONAL_INFORMATION_ID,
+        AI.TYPE,
+        AI.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT
+        FROM waydb.cars C LEFT JOIN waydb.additional_informations AI ON C.ADDITIONAL_INFORMATION_ID = AI.ID
+    </select>
+    <update id="updateCar">
+        UPDATE waydb.cars
+        SET MODEL                     = #{model}, MAX_WEIGHT = #{maxWeight}, CLIMAT_CONTROL_TYPE = #{climatControlType},
+        ADDITIONAL_INFORMATION_ID = #{additionalInformation.id} WHERE ID = #{id}
+    </update>
+    <delete id="deleteCar" >
+        DELETE FROM waydb.cars WHERE ID = #{id}
+    </delete>
     <resultMap id="carMapper" type="com.roxoft.trainingteamone.models.Car" autoMapping="false">
         <id property="id" column="CAR_ID"/>
         <result property="model" column="MODEL"/>

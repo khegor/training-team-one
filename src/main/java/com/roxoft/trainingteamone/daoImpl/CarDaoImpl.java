@@ -10,10 +10,13 @@ import java.util.List;
 /**
  * Created by Esenin on 15.10.2017.
  */
-public class CarDaoImpl {
+public class CarDaoImpl implements CarDao{
 
     public void createCar(Car car) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.insert("carMapper.createCar", car);
+        sqlSession.close();
     }
 
     public Car getCarById(long id) {
@@ -24,14 +27,26 @@ public class CarDaoImpl {
     }
 
     public List<Car> getAllCars() {
-        return null;
+        SqlSession sqlSession = SessionFactory.getSession();
+        List<Car> cars = sqlSession.selectList("carMapper.getAllCars");
+        sqlSession.close();
+        return cars;
     }
 
     public void updateCar(Car car) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.update("carMapper.updateCar", car);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     public void deleteCar(long id) {
+
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.delete("carMapper.deleteCar", id);
+        sqlSession.commit();
+        sqlSession.close();
 
     }
 }

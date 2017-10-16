@@ -15,9 +15,13 @@ public class BikeDaoImpl implements BikeDao{
 
     public void createBike(Bike bike) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.insert("bikeMapper.createBike", bike);
+        sqlSession.close();
     }
 
     public Bike getBikeById(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         Bike bike = sqlSession.selectOne("bikeMapper.getBikeById", id);
         sqlSession.close();
@@ -25,14 +29,26 @@ public class BikeDaoImpl implements BikeDao{
     }
 
     public List<Bike> getAllBikes() {
-        return null;
+
+        SqlSession sqlSession = SessionFactory.getSession();
+        List<Bike> bike = sqlSession.selectList("bikeMapper.getAllBikes");
+        sqlSession.close();
+        return bike;
     }
 
     public void updateBike(Bike bike) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.update("bikeMapper.updateBike", bike);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     public void deleteBike(long id) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.delete("bikeMapper.deleteBike", id);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

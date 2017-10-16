@@ -14,24 +14,30 @@ import java.util.List;
 public class BikeService {
 
     BikeDao bikeDao = new BikeDaoImpl();
+    AdditionalInformationService additionalInformationService = new AdditionalInformationService();
 
-    public void createBike(Bike bike) {
+    public Bike createBike(Bike bike) {
 
+        additionalInformationService.createAdditionalInformation(bike.getAdditionalInformation());
+        bikeDao.createBike(bike);
+        return bike;
     }
 
     public Bike getBikeById(long id) {
         return bikeDao.getBikeById(id);
     }
 
-    public List<BikeDao> getAllBikes() {
-        return null;
+    public List<Bike> getAllBikes() {
+        return bikeDao.getAllBikes();
     }
 
-    public void updateBike(BikeDao bikeDao) {
+    public void updateBike(Bike bike) {
 
+        bikeDao.updateBike(bike);
     }
 
     public void deleteBike(long id) {
 
+        bikeDao.deleteBike(id);
     }
 }
