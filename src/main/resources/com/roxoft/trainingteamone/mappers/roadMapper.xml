@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.roxoft.trainingteamone.mappers.roadMapper">
+
+	<insert id="createRoad" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO roads (NAME,DAILY_CAPACITY,FROM_CROSSROAD_ID,TO_CROSSROAD_ID,SEMAPHORES_COUNT,CREATED_AT)
+			VALUES (
+				#{name},
+				#{dailyCarryingCapacity},
+				#{fromCrossroad.id},
+				#{toCrossroad.id},
+				#{semaphoresCount},
+				#{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
+			)
+		]]>	
+	</insert>
+
+	<sql id="getRoad">
+		<![CDATA[
+			SELECT
+			    r.ID,
+			    r.NAME,
+			    r.DAILY_CAPACITY,
+				r.SEMAPHORES_COUNT
+			FROM
+				roads r
+					LEFT JOIN crossroads cr ON
+				        cr.ID = r.FROM_CROSSROAD_ID
+				    LEFT JOIN crossroads cr ON
+				        cr.ID = r.TO_CROSSROAD_ID
+				    LEFT JOIN hotels h ON
+				        h.ROADS_ID = r.ID
+				    LEFT JOIN car_stations cs ON 
+					    cs.ROADS_ID = r.ID
+		]]>
+	</sql>
+
+	<select id="getRoadById" resultMap="RoadResultMap">
+		<include refid="getRoad" />
+		<![CDATA[
+			WHERE r.ID = #{id};
+		]]>
+	</select>
+	
+	<select id="getAllRoads" resultMap="RoadResultMap">
+		<include refid="getRoad" />
+	</select>
+
+	<update id="updateRoad">
+		<![CDATA[
+        	UPDATE
+        		roads
+          	SET
+          		NAME = #{name},
+				DAILY_CAPACITY = #{dailyCapacity},
+				FROM_CROSSROAD_ID = #{fromCrossroad.id},
+				TO_CROSSROAD_ID = #{toCrossroad.id},
+				SEMAPHORES_COUNT = #{semaphoresCount}
+          	WHERE
+			 	ID = #{id}
+        ]]>
+	</update>
+	
+	 <delete id="deleteRoad">
+        <![CDATA[
+        	DELETE
+          	FROM 
+          		roads 
+          	WHERE
+          		ID = #{id}
+        ]]>
+    </delete>
+	
+	<resultMap type="com.roxoft.trainingteamone.models.Road" id="RoadResultMap" autoMapping="false">
+		<id column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="DAILY_CAPACITY" property="dailyCapacity" />
+		<result column="SEMAPHORES_COUNT" property="semaphoresCount" />
+		<association property="fromCrossroad" column="FROM_CROSSROAD_ID" select="getCrossroadById" />
+		<association property="toCrossroad" column="TO_CROSSROAD_ID" select="getCrossroadById" />
+<!-- 		<collection property="hotels" javaType="ArrayList" ofType="Hotel" select="getHotelsByRoadId" resultMap="HotelResultMap" />
+		<collection property="carstations" javaType="ArrayList" ofType="CarStation" select="getCarStationsByRoadId" resultMap="CarStationsResultMap" /> -->
+	</resultMap>
+
+</mapper>
