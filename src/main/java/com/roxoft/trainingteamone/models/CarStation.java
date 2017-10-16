@@ -6,6 +6,7 @@ package com.roxoft.trainingteamone.models;
 public class CarStation extends AbstractEntity{
 
     private String name;
+    private long roadId;
 
     public String getName() {
         return name;
@@ -14,4 +15,12 @@ public class CarStation extends AbstractEntity{
     public void setName(String name) {
         this.name = name;
     }
+
+	public long getRoadId() {
+		return roadId;
+	}
+
+	public void setRoadId(long roadId) {
+		this.roadId = roadId;
+	}
 }

@@ -8,10 +8,11 @@
 			INSERT INTO hotels (NAME,ROADS_ID,CREATED_AT)
 			VALUES (
 				#{name},
-				#{road.id},
+				#{roadId},
 				#{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
 			)
 		]]>
+
 	</insert>
 
 	<sql id="getHotel">

@@ -20,16 +20,18 @@
 	<sql id="getRoad">
 		<![CDATA[
 			SELECT
-			r.ID,
-			r.NAME,
-			r.DAILY_CAPACITY,
-			r.SEMAPHORES_COUNT
+				r.ID,
+				r.NAME,
+				r.DAILY_CAPACITY,
+				r.SEMAPHORES_COUNT,
+				cr1.ID,cr1.NAME,
+				cr2.ID,cr2.NAME
 			FROM
 				roads r
 			LEFT JOIN crossroads cr1 ON
-				cr1.ID = r.FROM_CROSSROAD_ID
+				r.FROM_CROSSROAD_ID = cr1.ID 
 			LEFT JOIN crossroads cr2 ON
-				cr2.ID = r.TO_CROSSROAD_ID
+				r.TO_CROSSROAD_ID = cr2.ID
 		]]>
 	</sql>
 
@@ -74,8 +76,8 @@
 		<result column="NAME" property="name" />
 		<result column="DAILY_CAPACITY" property="dailyCarryingCapacity" />
 		<result column="SEMAPHORES_COUNT" property="semaphoresCount" />
-		<association property="fromCrossroad" column="FROM_CROSSROAD_ID" select="getCrossroadById" />
-		<association property="toCrossroad" column="TO_CROSSROAD_ID" select="getCrossroadById" />
+		<association property="fromCrossroad" resultMap="com.roxoft.trainingteamone.mappers.crossroadMapper.CrossroadResultMap" />
+		<association property="toCrossroad" resultMap="com.roxoft.trainingteamone.mappers.crossroadMapper.CrossroadResultMap" />
 <!-- 		<collection property="hotels" javaType="ArrayList" ofType="Hotel" select="getHotelsByRoadId" resultMap="HotelResultMap" />
 		<collection property="carstations" javaType="ArrayList" ofType="CarStation" select="getCarStationsByRoadId" resultMap="CarStationsResultMap" /> -->
 	</resultMap>

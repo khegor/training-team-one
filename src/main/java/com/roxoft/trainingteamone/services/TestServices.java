@@ -115,11 +115,12 @@ public class TestServices {
 	    road3.setToCrossroad(c105);
 	    
 	    RoadService rs = new RoadService();
-//	    rs.createRoad(road1);
-//	    rs.createRoad(road2);
+	    rs.createRoad(road1);
+	    rs.createRoad(road2);
 //	    rs.createRoad(road3);
-	    Road rd = rs.getRoad(4);
-	    System.out.println(rd.getName().toString());
-	    System.out.println(rd.getHotels().toString());
+//	    Road rd = rs.getRoad(2);
+//	    System.out.println(rd.getName().toString());
+//	    System.out.println(rd.getHotels().toString());
+//	    System.out.println(rd.getFromCrossroad().toString());
     }
 }

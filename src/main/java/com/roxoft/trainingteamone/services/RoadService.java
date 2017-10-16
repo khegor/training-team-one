@@ -26,11 +26,12 @@ public class RoadService {
 	
 	public void createRoad(Road road){		
 		roadDaoI.createRoad(road);
-		
 		for (Hotel hotel:road.getHotels()){
+			hotel.setRoadId(road.getId());
 			hotelDaoI.createHotel(hotel);
 		}
 		for (CarStation cs:road.getCarStations()){
+			cs.setRoadId(road.getId());
 			carstationDaoI.createCarStation(cs);
 		}
 	}

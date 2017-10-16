@@ -6,7 +6,8 @@
 	<insert id="createCrossroad" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
 			INSERT INTO crossroads (NAME,CREATED_AT)
-			VALUES (
+			VALUES 
+			(
 				#{name},
 				#{createdAt, typeHandler=org.apache.ibatis.type.DateTypeHandler}
 			)
@@ -26,7 +27,7 @@
 	<select id="getCrossroadById" resultMap="CrossroadResultMap">
 		<include refid="getCrossroad" />
 		<![CDATA[
-			WHERE ID = #{id}
+			WHERE cr.ID = #{id}
 		]]>
 	</select>
 	
@@ -37,11 +38,11 @@
 	<update id="updateCrossroad">
 		<![CDATA[
         	UPDATE
-        		crossroads
+        		crossroads cr
           	SET
           		NAME = #{name}
           	WHERE
-			 	ID = #{id}
+			 	cr.ID = #{id}
         ]]>
 	</update>
 	
