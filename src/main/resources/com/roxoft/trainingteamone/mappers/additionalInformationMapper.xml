@@ -22,7 +22,7 @@
         DELETE FROM waydb.additional_informations
         WHERE ID = #{id}
     </delete>
-    <select id="getAllAdditionalInformation" resultMap="additionalInformationMapper">
+    <select id="getAllAdditionalInformation" resultMap="additionalInformationResultMap">
         SELECT
             AI.ID         AS ADDITIONAL_INFORMATION_ID,
             AI.TYPE,
@@ -33,6 +33,6 @@
                autoMapping="false">
         <id property="id" column="ADDITIONAL_INFORMATION_ID"/>
         <result property="type" column="TYPE"/>
-        <result property="createdAt" column="ADDITIONAL_INFORMATION_AT"/>
+        <result property="createdAt" column="ADDITIONAL_INFORMATION_CREATED_AT"/>
     </resultMap>
 </mapper>

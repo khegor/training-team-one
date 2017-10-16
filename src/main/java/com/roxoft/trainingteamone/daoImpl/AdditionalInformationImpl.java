@@ -22,7 +22,8 @@ public class AdditionalInformationImpl implements AdditionalInformationDao {
     public AdditionalInformation getAdditionalInformationById(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        AdditionalInformation additionalInformation = sqlSession.selectOne("additionalInformation.getAdditionalInformationById", id);
+        AdditionalInformation additionalInformation = sqlSession.selectOne("additionalInformationMapper.getAdditionalInformationById", id);
+        sqlSession.commit();
         sqlSession.close();
         return additionalInformation;
     }
@@ -46,7 +47,7 @@ public class AdditionalInformationImpl implements AdditionalInformationDao {
     public void deleteAdditionalInformation(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.delete("deleteAdditionalInformationMapper.deleteAdditionalInformation", id);
+        sqlSession.delete("additionalInformationMapper.deleteAdditionalInformation", id);
         sqlSession.commit();
         sqlSession.close();
     }
