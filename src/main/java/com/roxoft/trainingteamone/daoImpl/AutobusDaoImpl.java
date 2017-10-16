@@ -16,6 +16,9 @@ public class AutobusDaoImpl implements AutobusDao {
 
     public void createAutobus(Autobus autobus) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.insert("autobusMapper.createAutobus", autobus);
+        sqlSession.close();
     }
 
     public Autobus getAutobusById(long id) {
@@ -27,14 +30,26 @@ public class AutobusDaoImpl implements AutobusDao {
     }
 
     public List<Autobus> getAllAutobuses() {
-        return null;
+
+        SqlSession sqlSession = SessionFactory.getSession();
+        List<Autobus> autobuses = sqlSession.selectList("autobusMapper.getAllAutobuses");
+        sqlSession.close();
+        return autobuses;
     }
 
     public void updateAutobus(Autobus autobus) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.update("autobusMapper.updateAutobus", autobus);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     public void deleteAutobus(long id) {
 
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.delete("autobusMapper.deleteAutobus", id);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

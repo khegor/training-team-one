@@ -6,6 +6,12 @@
     <select id="getAdditionalInformationById" resultMap="additionalInformationResultMap">
         SELECT A.ID AS ADDITIONAL_INFORMATION_ID, A.TYPE, A.CREATED_AT AS ADDITIONAL_INFORMATION_CREATED_AT FROM waydb.additional_informations A WHERE A.ID = #{id}
     </select>
+    <insert id="createAdditionalInformation" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO waydb.additional_informations(TYPE) VALUES(#{type})
+    </insert>
+    <update id="updateAdditionalInformationMapper" keyProperty="id" useGeneratedKeys="true">
+        UPDATE waydb.additional_informations SET TYPE = #{type}
+    </update>
     <resultMap id="additionalInformationResultMap" type="com.roxoft.trainingteamone.models.AdditionalInformation" autoMapping="false">
         <id property="id" column="ADDITIONAL_INFORMATION_ID"/>
         <result property="type" column="TYPE"/>
