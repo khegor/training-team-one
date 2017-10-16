@@ -53,9 +53,7 @@ public class MainClass {
 //       bikeService.deleteBike(2);
 
 
-        CarService carService = new CarService();
-        Car car = carService.getCarById(1);
-        System.out.println(car.getModel());
+
 
     }
 }
