@@ -27,9 +27,9 @@ public class RoadDaoImpl implements RoadDao {
         SqlSession sqlSession = SessionFactory.getSession();
         Road road;
         try{
-
-		road = sqlSession.selectOne("com.roxoft.trainingteamone.mappers.roadMapper.getRoadById", id);
-        sqlSession.commit();    	}
+        	road = sqlSession.selectOne("com.roxoft.trainingteamone.mappers.roadMapper.getRoadById", id);
+        	sqlSession.commit();
+        }
 		finally {
 			sqlSession.close();
 		}
