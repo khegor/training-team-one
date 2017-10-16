@@ -16,7 +16,7 @@ public class RoadDaoImpl implements RoadDao {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.insert("com.roxoft.trainingteamone.mappers.roadMapper.createRoad", road);
-        	
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
@@ -25,28 +25,35 @@ public class RoadDaoImpl implements RoadDao {
 
     public Road getRoadById(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
+        Road road;
         try{
-        	return sqlSession.selectOne("com.roxoft.trainingteamone.mappers.roadMapper.getRoadById", id);
+        	road = sqlSession.selectOne("com.roxoft.trainingteamone.mappers.roadMapper.getRoadById", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
 		}
+		return road;
     }
 
     public List<Road> getAllRoads() {
     	SqlSession sqlSession = SessionFactory.getSession();
+    	List<Road> roads;
     	try {
-    		return sqlSession.selectList("com.roxoft.trainingteamone.mappers.roadMapper.getAllRoads");
+    		roads = sqlSession.selectList("com.roxoft.trainingteamone.mappers.roadMapper.getAllRoads");
+        	sqlSession.commit();
     	}
     	finally {
     		sqlSession.close();
     	}
+		return roads;
     }
 
     public void updateRoad(Road road) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update("com.roxoft.trainingteamone.mappers.roadMapper.updateRoad", road);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
@@ -57,6 +64,7 @@ public class RoadDaoImpl implements RoadDao {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete("com.roxoft.trainingteamone.mappers.roadMapper.deleteRoad", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();

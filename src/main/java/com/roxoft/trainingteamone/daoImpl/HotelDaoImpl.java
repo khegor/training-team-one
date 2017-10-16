@@ -16,6 +16,7 @@ public class HotelDaoImpl implements HotelDao {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.insert("com.roxoft.trainingteamone.mappers.hotelMapper.createHotel", hotel);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
@@ -24,38 +25,48 @@ public class HotelDaoImpl implements HotelDao {
 
     public Hotel getHotelById(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
+        Hotel hotel;
         try{
-        	return sqlSession.selectOne("com.roxoft.trainingteamone.mappers.hotelMapper.getHotelById", id);
+        	hotel = sqlSession.selectOne("com.roxoft.trainingteamone.mappers.hotelMapper.getHotelById", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
 		}
+		return hotel;
     }
     
     public List<Hotel> getHotelsByRoadId(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
+        List<Hotel> hotels;
         try{
-        	return sqlSession.selectList("com.roxoft.trainingteamone.mappers.hotelMapper.getHotelsByRoadId", id);
+        	hotels = sqlSession.selectList("com.roxoft.trainingteamone.mappers.hotelMapper.getHotelsByRoadId", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
 		}
+		return hotels;
     }
     
     public List<Hotel> getAllHotels() {
     	SqlSession sqlSession = SessionFactory.getSession();
+    	List<Hotel> hotels;
     	try {
-    		return sqlSession.selectList("com.roxoft.trainingteamone.mappers.hotelMapper.getAllHotels");
+    		hotels = sqlSession.selectList("com.roxoft.trainingteamone.mappers.hotelMapper.getAllHotels");
+        	sqlSession.commit();
     	}
     	finally {
     		sqlSession.close();
     	}
+    	return hotels;
     }
 
     public void updateHotel(Hotel hotel) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update("com.roxoft.trainingteamone.mappers.hotelMapper.updateHotel", hotel);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
@@ -66,6 +77,7 @@ public class HotelDaoImpl implements HotelDao {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete("com.roxoft.trainingteamone.mappers.hotelMapper.deleteHotel", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();

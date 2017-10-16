@@ -16,6 +16,7 @@ public class CarStationDaoImpl implements CarStationDao {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.insert("com.roxoft.trainingteamone.mappers.carstationMapper.createCarStation", carStation);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
@@ -24,38 +25,48 @@ public class CarStationDaoImpl implements CarStationDao {
 
     public CarStation getCarStationById(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
+        CarStation carstation;
         try{
-        	return sqlSession.selectOne("com.roxoft.trainingteamone.mappers.carstationMapper.getCarStationById", id);
+        	carstation = sqlSession.selectOne("com.roxoft.trainingteamone.mappers.carstationMapper.getCarStationById", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
 		}
+		return carstation;
     }
     
     public List<CarStation> getCarStationsByRoadId(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
+        List<CarStation> carstations;
         try{
-        	return sqlSession.selectList("com.roxoft.trainingteamone.mappers.carstationMapper.getCarStationsByRoadId", id);
+        	carstations = sqlSession.selectList("com.roxoft.trainingteamone.mappers.carstationMapper.getCarStationsByRoadId", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
 		}
+		return carstations;
     }
 
     public List<CarStation> getAllCarStations() {
     	SqlSession sqlSession = SessionFactory.getSession();
+    	List<CarStation> carstations;
     	try {
-    		return sqlSession.selectList("com.roxoft.trainingteamone.mappers.carstationMapper.getAllCarStations");
+    		carstations = sqlSession.selectList("com.roxoft.trainingteamone.mappers.carstationMapper.getAllCarStations");
+    		sqlSession.commit();
     	}
     	finally {
     		sqlSession.close();
     	}
+		return carstations;
     }
 
     public void updateCarStation(CarStation carStation) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update("com.roxoft.trainingteamone.mappers.carstationMapper.updateCarStation", carStation);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
@@ -66,6 +77,7 @@ public class CarStationDaoImpl implements CarStationDao {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete("com.roxoft.trainingteamone.mappers.carstationMapper.deleteCarStation", id);
+        	sqlSession.commit();
     	}
 		finally {
 			sqlSession.close();
