@@ -82,7 +82,7 @@ public class TestServices {
 	    crs.createCrossroad(c103);
 	    crs.createCrossroad(c104);
 	    crs.createCrossroad(c105);
-	    System.out.println(crs.getCrossroad(25).getName());
+//	    System.out.println(crs.getCrossroad(25).getName());
 //	    crs.updateCrossroad(c103);
 //	    crs.deleteCrossroad(23);
 //	    LOGGER.info(crs.getAllCrossroads());
@@ -115,8 +115,11 @@ public class TestServices {
 	    road3.setToCrossroad(c105);
 	    
 	    RoadService rs = new RoadService();
-	    rs.createRoad(road1);
-	    rs.createRoad(road2);
-	    rs.createRoad(road3);
+//	    rs.createRoad(road1);
+//	    rs.createRoad(road2);
+//	    rs.createRoad(road3);
+	    Road rd = rs.getRoad(4);
+	    System.out.println(rd.getName().toString());
+	    System.out.println(rd.getHotels().toString());
     }
 }

@@ -25,15 +25,11 @@
 			r.DAILY_CAPACITY,
 			r.SEMAPHORES_COUNT
 			FROM
-			roads r
-			LEFT JOIN crossroads cr ON
-			cr.ID = r.FROM_CROSSROAD_ID
-			LEFT JOIN crossroads cr ON
-			cr.ID = r.TO_CROSSROAD_ID
-			LEFT JOIN hotels h ON
-			h.ROADS_ID = r.ID
-			LEFT JOIN car_stations cs ON
-			cs.ROADS_ID = r.ID
+				roads r
+			LEFT JOIN crossroads cr1 ON
+				cr1.ID = r.FROM_CROSSROAD_ID
+			LEFT JOIN crossroads cr2 ON
+				cr2.ID = r.TO_CROSSROAD_ID
 		]]>
 	</sql>
 
@@ -76,7 +72,7 @@
 	<resultMap type="com.roxoft.trainingteamone.models.Road" id="RoadResultMap" autoMapping="false">
 		<id column="ID" property="id" />
 		<result column="NAME" property="name" />
-		<result column="DAILY_CAPACITY" property="dailyCapacity" />
+		<result column="DAILY_CAPACITY" property="dailyCarryingCapacity" />
 		<result column="SEMAPHORES_COUNT" property="semaphoresCount" />
 		<association property="fromCrossroad" column="FROM_CROSSROAD_ID" select="getCrossroadById" />
 		<association property="toCrossroad" column="TO_CROSSROAD_ID" select="getCrossroadById" />
