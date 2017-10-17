@@ -52,4 +52,8 @@ public class RoadService {
 	public void deleteRoad(int id){
 		roadDaoI.deleteRoad(id);
 	}
+
+	public List<Road> getAllRoads(){
+		return roadDaoI.getAllRoads();
+	 }
 }
