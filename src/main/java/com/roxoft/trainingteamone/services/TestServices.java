@@ -48,11 +48,11 @@ public class TestServices {
 	    listHotel1.add(hotel1);
 	    listHotel1.add(hotel2);
 	    List<Hotel> listHotel2 = new ArrayList<Hotel>();
-	    listHotel1.add(hotel3);
-	    listHotel1.add(hotel4);
+	    listHotel2.add(hotel3);
+	    listHotel2.add(hotel4);
 	    List<Hotel> listHotel3 = new ArrayList<Hotel>();
-	    listHotel1.add(hotel5);
-	    listHotel1.add(hotel6);
+	    listHotel3.add(hotel5);
+	    listHotel3.add(hotel6);
 	    
 	    CarStation carstation1 = new CarStation();
 	    carstation1.setName("carstation1");
@@ -70,11 +70,11 @@ public class TestServices {
 	    listCarStation1.add(carstation1);
 	    listCarStation1.add(carstation2);
 	    List<CarStation> listCarStation2 = new ArrayList<CarStation>();
-	    listCarStation1.add(carstation3);
-	    listCarStation1.add(carstation4);
+	    listCarStation2.add(carstation3);
+	    listCarStation2.add(carstation4);
 	    List<CarStation> listCarStation3 = new ArrayList<CarStation>();
-	    listCarStation1.add(carstation5);
-	    listCarStation1.add(carstation6);
+	    listCarStation3.add(carstation5);
+	    listCarStation3.add(carstation6);
 	    
 	    CrossroadService crs = new CrossroadService();
 	    crs.createCrossroad(c101);
@@ -117,7 +117,7 @@ public class TestServices {
 	    RoadService rs = new RoadService();
 	    rs.createRoad(road1);
 	    rs.createRoad(road2);
-//	    rs.createRoad(road3);
+	    rs.createRoad(road3);
 //	    Road rd = rs.getRoad(2);
 //	    System.out.println(rd.getName().toString());
 //	    System.out.println(rd.getHotels().toString());

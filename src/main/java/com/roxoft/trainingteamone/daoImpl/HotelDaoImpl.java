@@ -11,11 +11,11 @@ import java.util.List;
  * Created by Natalia on 15.10.2017.
  */
 public class HotelDaoImpl implements HotelDao {
-
+	final static String namespace = "hotelMapper";
     public void createHotel(Hotel hotel) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
-        	sqlSession.insert("com.roxoft.trainingteamone.mappers.hotelMapper.createHotel", hotel);
+        	sqlSession.insert(namespace + ".createHotel", hotel);
         	sqlSession.commit();
     	}
 		finally {
@@ -27,7 +27,7 @@ public class HotelDaoImpl implements HotelDao {
         SqlSession sqlSession = SessionFactory.getSession();
         Hotel hotel;
         try{
-        	hotel = sqlSession.selectOne("com.roxoft.trainingteamone.mappers.hotelMapper.getHotelById", id);
+        	hotel = sqlSession.selectOne(namespace + ".getHotelById", id);
         	sqlSession.commit();
     	}
 		finally {
@@ -40,7 +40,7 @@ public class HotelDaoImpl implements HotelDao {
         SqlSession sqlSession = SessionFactory.getSession();
         List<Hotel> hotels;
         try{
-        	hotels = sqlSession.selectList("com.roxoft.trainingteamone.mappers.hotelMapper.getHotelsByRoadId", id);
+        	hotels = sqlSession.selectList(namespace + ".getHotelsByRoadId", id);
         	sqlSession.commit();
     	}
 		finally {
@@ -53,7 +53,7 @@ public class HotelDaoImpl implements HotelDao {
     	SqlSession sqlSession = SessionFactory.getSession();
     	List<Hotel> hotels;
     	try {
-    		hotels = sqlSession.selectList("com.roxoft.trainingteamone.mappers.hotelMapper.getAllHotels");
+    		hotels = sqlSession.selectList(namespace + ".getAllHotels");
         	sqlSession.commit();
     	}
     	finally {
@@ -65,7 +65,7 @@ public class HotelDaoImpl implements HotelDao {
     public void updateHotel(Hotel hotel) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
-        	sqlSession.update("com.roxoft.trainingteamone.mappers.hotelMapper.updateHotel", hotel);
+        	sqlSession.update(namespace + ".updateHotel", hotel);
         	sqlSession.commit();
     	}
 		finally {

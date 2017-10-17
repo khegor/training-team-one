@@ -12,11 +12,12 @@ import java.util.List;
  * Created by Natalia on 15.10.2017.
  */
 public class CrossroadDaoImpl implements CrossroadDao {
-
+	final static String namespace = "crossroadMapper";
+	
     public void createCrossroad(Crossroad crossroad) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
-        	sqlSession.insert("com.roxoft.trainingteamone.mappers.crossroadMapper.createCrossroad", crossroad);
+        	sqlSession.insert(namespace + ".createCrossroad", crossroad);
         	sqlSession.commit();
     	}
 		finally {
@@ -28,7 +29,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
         SqlSession sqlSession = SessionFactory.getSession();
         Crossroad cr = new Crossroad();
         try{
-        	cr =  sqlSession.selectOne("com.roxoft.trainingteamone.mappers.crossroadMapper.getCrossroadById", id);
+        	cr =  sqlSession.selectOne(namespace + ".getCrossroadById", id);
         	sqlSession.commit();
     	}
 		finally {
@@ -41,7 +42,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     	SqlSession sqlSession = SessionFactory.getSession();
     	List<Crossroad> crlist = new ArrayList<Crossroad>();
     	try {
-    		crlist = sqlSession.selectList("com.roxoft.trainingteamone.mappers.crossroadMapper.getAllCrossroads");
+    		crlist = sqlSession.selectList(namespace + ".getAllCrossroads");
     	}
     	finally {
     		sqlSession.close();
@@ -52,7 +53,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     public void updateCrossroad(Crossroad crossroad) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
-        	sqlSession.update("com.roxoft.trainingteamone.mappers.crossroadMapper.updateCrossroad", crossroad);
+        	sqlSession.update(namespace + ".updateCrossroad", crossroad);
         	sqlSession.commit();
     	}
 		finally {
@@ -63,7 +64,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     public void deleteCrossroad(long id) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
-        	sqlSession.delete("com.roxoft.trainingteamone.mappers.crossroadMapper.deleteCrossroad", id);
+        	sqlSession.delete(namespace + ".deleteCrossroad", id);
         	sqlSession.commit();
     	}
 		finally {

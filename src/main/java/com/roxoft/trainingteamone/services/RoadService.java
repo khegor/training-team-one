@@ -1,6 +1,7 @@
 package com.roxoft.trainingteamone.services;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.roxoft.trainingteamone.daoImpl.CarStationDaoImpl;
 import com.roxoft.trainingteamone.daoImpl.HotelDaoImpl;
@@ -26,14 +27,13 @@ public class RoadService {
 	
 	public void createRoad(Road road){		
 		roadDaoI.createRoad(road);
-		for (Hotel hotel:road.getHotels()){
-			hotel.setRoadId(road.getId());
-			hotelDaoI.createHotel(hotel);
-		}
-		for (CarStation cs:road.getCarStations()){
-			cs.setRoadId(road.getId());
-			carstationDaoI.createCarStation(cs);
-		}
+		final long roadId = road.getId();
+		List<Hotel> hotels = road.getHotels();
+		hotels.stream().forEach((h) -> h.setRoadId(roadId));
+		hotels.stream().forEach((h) -> hotelDaoI.createHotel(h));
+		List<CarStation> cs = road.getCarStations();
+		cs.stream().forEach((c) -> c.setRoadId(roadId));
+		cs.stream().forEach((c) -> carstationDaoI.createCarStation(c));
 	}
 	
 	public Road getRoad(int id){

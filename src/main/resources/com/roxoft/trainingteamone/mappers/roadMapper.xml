@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.roxoft.trainingteamone.mappers.roadMapper">
+<mapper namespace="roadMapper">
 
 	<insert id="createRoad" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
@@ -76,8 +76,8 @@
 		<result column="NAME" property="name" />
 		<result column="DAILY_CAPACITY" property="dailyCarryingCapacity" />
 		<result column="SEMAPHORES_COUNT" property="semaphoresCount" />
-		<association property="fromCrossroad" resultMap="com.roxoft.trainingteamone.mappers.crossroadMapper.CrossroadResultMap" />
-		<association property="toCrossroad" resultMap="com.roxoft.trainingteamone.mappers.crossroadMapper.CrossroadResultMap" />
+		<association property="fromCrossroad" resultMap="crossroadMapper.CrossroadResultMap" />
+		<association property="toCrossroad" resultMap="crossroadMapper.CrossroadResultMap" />
 <!-- 		<collection property="hotels" javaType="ArrayList" ofType="Hotel" select="getHotelsByRoadId" resultMap="HotelResultMap" />
 		<collection property="carstations" javaType="ArrayList" ofType="CarStation" select="getCarStationsByRoadId" resultMap="CarStationsResultMap" /> -->
 	</resultMap>
