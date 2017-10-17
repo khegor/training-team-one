@@ -64,3 +64,24 @@ INSERT INTO `waydb`.`autobuses` (`MODEL`, `MAX_WEIGHT`, `PUNCH_TYPE`, `ADDITIONA
 INSERT INTO `waydb`.`autobuses` (`MODEL`, `MAX_WEIGHT`, `PUNCH_TYPE`, `ADDITIONAL_INFORMATION_ID`, `CREATED_AT`) VALUES ('model18', '200', 'punch18', '3', '2000-1-1');
 INSERT INTO `waydb`.`autobuses` (`MODEL`, `MAX_WEIGHT`, `PUNCH_TYPE`, `ADDITIONAL_INFORMATION_ID`, `CREATED_AT`) VALUES ('model19', '200', 'punch19', '1', '2000-1-1');
 INSERT INTO `waydb`.`autobuses` (`MODEL`, `MAX_WEIGHT`, `PUNCH_TYPE`, `ADDITIONAL_INFORMATION_ID`, `CREATED_AT`) VALUES ('model20', '200', 'punch20', '2', '2000-1-1');
+
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 1', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 2', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 3', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 4', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 5', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 6', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 7', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 8', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 9', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 10', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 11', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 12', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 13', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 14', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 15', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 16', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 17', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 18', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 19', '2000-1-1');
+INSERT INTO `waydb`.`crossroads` (`NAME`, `CREATED_AT`) VALUES ( 'Crossroad 20', '2000-1-1');
