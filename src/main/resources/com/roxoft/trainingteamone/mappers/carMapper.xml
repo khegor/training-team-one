@@ -47,9 +47,9 @@
         <id property="id" column="CAR_ID"/>
         <result property="model" column="MODEL"/>
         <result property="maxWeight" column="MAX_WEIGHT"/>
-        <result property="climatControlType" column="CLIMAT_CONTROL_TYPE"/>
-        <result property="createdAt" column="CAR_CREATED_AT"/>
-        <association property="additionalInformation"
-                     resultMap="additionalInformationMapper.additionalInformationResultMap"/>
+<!--         <result property="climatControlType" column="CLIMAT_CONTROL_TYPE"/>
+ -->        <result property="createdAt" column="CAR_CREATED_AT"/>
+       <!--  <association property="additionalInformation"
+                     resultMap="additionalInformationMapper.additionalInformationResultMap"/> -->
     </resultMap>
 </mapper>
