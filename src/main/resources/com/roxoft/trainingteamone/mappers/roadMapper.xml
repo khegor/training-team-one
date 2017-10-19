@@ -24,8 +24,10 @@
 				r.NAME,
 				r.DAILY_CAPACITY,
 				r.SEMAPHORES_COUNT,
-				cr1.ID,cr1.NAME,
-				cr2.ID,cr2.NAME
+				cr1.ID AS FROM_CROSSROAD_ID,
+				cr1.NAME AS FROM_CROSSROAD_NAME,
+				cr2.ID AS TO_CROSSROAD_ID,
+				cr2.NAME AS TO_CROSSROAD_NAME
 			FROM
 				roads r
 			LEFT JOIN crossroads cr1 ON
@@ -76,8 +78,8 @@
 		<result column="NAME" property="name" />
 		<result column="DAILY_CAPACITY" property="dailyCarryingCapacity" />
 		<result column="SEMAPHORES_COUNT" property="semaphoresCount" />
-		<association property="fromCrossroad" resultMap="crossroadMapper.CrossroadResultMap" />
-		<association property="toCrossroad" resultMap="crossroadMapper.CrossroadResultMap" />
+		<association property="fromCrossroad" resultMap="crossroadMapper.CrossroadResultMap" columnPrefix="FROM_CROSSROAD_"/>
+		<association property="toCrossroad" resultMap="crossroadMapper.CrossroadResultMap" columnPrefix="TO_CROSSROAD_"/>
 <!-- 		<collection property="hotels" javaType="ArrayList" ofType="Hotel" select="getHotelsByRoadId" resultMap="HotelResultMap" />
 		<collection property="carstations" javaType="ArrayList" ofType="CarStation" select="getCarStationsByRoadId" resultMap="CarStationsResultMap" /> -->
 	</resultMap>

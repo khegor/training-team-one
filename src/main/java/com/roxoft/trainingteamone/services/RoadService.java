@@ -25,7 +25,7 @@ public class RoadService {
 		carstationDaoI = new CarStationDaoImpl();
 	}
 	
-	public void createRoad(Road road){		
+	public void createRoad(Road road){
 		roadDaoI.createRoad(road);
 		final long roadId = road.getId();
 		List<Hotel> hotels = road.getHotels();

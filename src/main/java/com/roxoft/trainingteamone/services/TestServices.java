@@ -122,5 +122,6 @@ public class TestServices {
 //	    System.out.println(rd.getName().toString());
 //	    System.out.println(rd.getHotels().toString());
 //	    System.out.println(rd.getFromCrossroad().toString());
+
     }
 }
