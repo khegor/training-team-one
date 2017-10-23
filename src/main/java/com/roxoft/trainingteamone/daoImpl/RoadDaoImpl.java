@@ -14,6 +14,7 @@ public class RoadDaoImpl implements RoadDao {
 	final static String namespace = "roadMapper";
 			
     public void createRoad(Road road) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.insert(namespace + ".createRoad", road);
@@ -25,6 +26,7 @@ public class RoadDaoImpl implements RoadDao {
     }
 
     public Road getRoadById(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         Road road;
         try{
@@ -38,6 +40,7 @@ public class RoadDaoImpl implements RoadDao {
     }
 
     public List<Road> getAllRoads() {
+
     	SqlSession sqlSession = SessionFactory.getSession();
     	List<Road> roads;
     	try {
@@ -51,6 +54,7 @@ public class RoadDaoImpl implements RoadDao {
     }
 
     public void updateRoad(Road road) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update(namespace + ".updateRoad", road);
@@ -62,6 +66,7 @@ public class RoadDaoImpl implements RoadDao {
     }
 
     public void deleteRoad(long id) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete(namespace + ".deleteRoad", id);

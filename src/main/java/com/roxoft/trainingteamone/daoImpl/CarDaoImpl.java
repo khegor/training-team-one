@@ -22,6 +22,7 @@ public class CarDaoImpl implements CarDao{
     }
 
     public Car getCarById(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         Car car = sqlSession.selectOne(namespace + ".getCarById", id);
         sqlSession.close();
@@ -29,6 +30,7 @@ public class CarDaoImpl implements CarDao{
     }
 
     public List<Car> getAllCars() {
+
         SqlSession sqlSession = SessionFactory.getSession();
         List<Car> cars = sqlSession.selectList(namespace + ".getAllCars");
         sqlSession.close();

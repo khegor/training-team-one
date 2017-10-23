@@ -12,6 +12,7 @@ import java.util.List;
  * Created by Natalia on 15.10.2017.
  */
 public class CrossroadDaoImpl implements CrossroadDao {
+
 	final static String namespace = "crossroadMapper";
 	
     public void createCrossroad(Crossroad crossroad) {
@@ -26,6 +27,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     }
 
     public Crossroad getCrossroadById(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         Crossroad cr = new Crossroad();
         try{
@@ -39,6 +41,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     }
 
     public List<Crossroad> getAllCrossroads() {
+
     	SqlSession sqlSession = SessionFactory.getSession();
     	List<Crossroad> crlist = new ArrayList<Crossroad>();
     	try {
@@ -51,6 +54,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     }
 
     public void updateCrossroad(Crossroad crossroad) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update(namespace + ".updateCrossroad", crossroad);
@@ -62,6 +66,7 @@ public class CrossroadDaoImpl implements CrossroadDao {
     }
 
     public void deleteCrossroad(long id) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete(namespace + ".deleteCrossroad", id);

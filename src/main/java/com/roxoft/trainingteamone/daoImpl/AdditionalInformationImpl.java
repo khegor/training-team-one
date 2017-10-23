@@ -11,7 +11,9 @@ import java.util.List;
  * Created by Esenin on 15.10.2017.
  */
 public class AdditionalInformationImpl implements AdditionalInformationDao {
+
     final static String namespace = "additionalInformationMapper";
+
     public void createAdditionalInformation(AdditionalInformation additionalInformation) {
 
         SqlSession sqlSession = SessionFactory.getSession();

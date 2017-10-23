@@ -11,9 +11,11 @@ import java.util.List;
  * Created by Natalia on 15.10.2017.
  */
 public class CarStationDaoImpl implements CarStationDao {
+
 	final static String namespace = "carstationMapper";
 	
     public void createCarStation(CarStation carStation) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.insert(namespace + ".createCarStation", carStation);
@@ -25,6 +27,7 @@ public class CarStationDaoImpl implements CarStationDao {
     }
 
     public CarStation getCarStationById(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         CarStation carstation;
         try{
@@ -38,6 +41,7 @@ public class CarStationDaoImpl implements CarStationDao {
     }
     
     public List<CarStation> getCarStationsByRoadId(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         List<CarStation> carstations;
         try{
@@ -51,6 +55,7 @@ public class CarStationDaoImpl implements CarStationDao {
     }
 
     public List<CarStation> getAllCarStations() {
+
     	SqlSession sqlSession = SessionFactory.getSession();
     	List<CarStation> carstations;
     	try {
@@ -64,6 +69,7 @@ public class CarStationDaoImpl implements CarStationDao {
     }
 
     public void updateCarStation(CarStation carStation) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update(namespace + ".updateCarStation", carStation);
@@ -75,6 +81,7 @@ public class CarStationDaoImpl implements CarStationDao {
     }
 
     public void deleteCarStation(long id) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete(namespace + ".deleteCarStation", id);

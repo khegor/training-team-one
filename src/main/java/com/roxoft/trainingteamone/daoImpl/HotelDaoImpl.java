@@ -11,6 +11,7 @@ import java.util.List;
  * Created by Natalia on 15.10.2017.
  */
 public class HotelDaoImpl implements HotelDao {
+
 	final static String namespace = "hotelMapper";
     public void createHotel(Hotel hotel) {
     	SqlSession sqlSession = SessionFactory.getSession();
@@ -24,6 +25,7 @@ public class HotelDaoImpl implements HotelDao {
     }
 
     public Hotel getHotelById(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         Hotel hotel;
         try{
@@ -37,6 +39,7 @@ public class HotelDaoImpl implements HotelDao {
     }
     
     public List<Hotel> getHotelsByRoadId(long id) {
+
         SqlSession sqlSession = SessionFactory.getSession();
         List<Hotel> hotels;
         try{
@@ -50,6 +53,7 @@ public class HotelDaoImpl implements HotelDao {
     }
     
     public List<Hotel> getAllHotels() {
+
     	SqlSession sqlSession = SessionFactory.getSession();
     	List<Hotel> hotels;
     	try {
@@ -63,6 +67,7 @@ public class HotelDaoImpl implements HotelDao {
     }
 
     public void updateHotel(Hotel hotel) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.update(namespace + ".updateHotel", hotel);
@@ -74,6 +79,7 @@ public class HotelDaoImpl implements HotelDao {
     }
 
     public void deleteHotel(long id) {
+
     	SqlSession sqlSession = SessionFactory.getSession();
         try{
         	sqlSession.delete("com.roxoft.trainingteamone.mappers.hotelMapper.deleteHotel", id);

@@ -82,7 +82,6 @@ public class Algorithm {
             printNameAndWeight(foundFlow);
             maxFlow = maxFlow + min;
         }
-
         return maxFlow;
     }
 
