@@ -27,7 +27,6 @@ public class Algorithm {
         visitedCrossroads = new HashMap<>();
         visitedCrossroads.put(fromCrossroad.getId(), new ArrayList<>());
         crossroadQueue.add(fromCrossroad);
-
         while (crossroadQueue.size() > 0) {
             Crossroad currentCrossroad = crossroadQueue.poll();
             List<Road> neighboardRoads = getRoadsByCrossroadId(roads, currentCrossroad.getId());
