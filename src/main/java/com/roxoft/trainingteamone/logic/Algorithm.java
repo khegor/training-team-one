@@ -23,6 +23,7 @@ public class Algorithm {
     }
 
     private boolean getExistingPath(List<Road> roads, Crossroad fromCrossroad, Crossroad toCrossroad) {
+
         Queue<Crossroad> crossroadQueue = new LinkedList<>();
         visitedCrossroads = new HashMap<>();
         visitedCrossroads.put(fromCrossroad.getId(), new ArrayList<>());
@@ -47,8 +48,8 @@ public class Algorithm {
     }
 
     public double getMaxFlow(Crossroad fromCrossroad, Crossroad toCrossroad) {
-        double maxFlow = 0;
 
+        double maxFlow = 0;
         List<Road> roads = new ArrayList<>(this.roads);
         while (getExistingPath(roads, fromCrossroad, toCrossroad)) {
             double min = Integer.MAX_VALUE;
@@ -79,7 +80,6 @@ public class Algorithm {
 
             LOGGER.info("After min");
             printNameAndWeight(foundFlow);
-
             maxFlow = maxFlow + min;
         }
 
@@ -87,6 +87,7 @@ public class Algorithm {
     }
 
     private List<Road> getRoadsByCrossroadId(List<Road> roads, long id) {
+
         List<Road> result = new ArrayList<>();
         roads.stream().filter(road -> road.getToCrossroad().getId() == id || road.getFromCrossroad().getId() == id)
                 .forEach(residualRoad -> result.add(residualRoad));
@@ -94,6 +95,7 @@ public class Algorithm {
     }
 
     private Road getRoadById(long id) {
+
         for (Road road : roads) {
             if (road.getId() == id) {
                 return road;
@@ -103,14 +105,17 @@ public class Algorithm {
     }
 
     private Crossroad walkTo(Crossroad currentCrossroad, Road road) {
+
         return currentCrossroad.getId() == road.getFromCrossroad().getId() ? road.getToCrossroad() : road.getFromCrossroad();
     }
 
     private List<Road> getFoundFlow(Crossroad toCrossroad) {
+
         return visitedCrossroads.get(toCrossroad.getId());
     }
 
     private void printNameAndWeight(List<Road> roads) {
+
         roads.stream().forEach(road -> LOGGER.info("        Current path: " + road.getFromCrossroad().getName()
                 + " -> " + road.getToCrossroad().getName() + "(" + road.getDailyCarryingCapacity() + ")"));
     }
