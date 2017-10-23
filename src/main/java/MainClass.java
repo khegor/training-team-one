@@ -41,7 +41,7 @@ public class MainClass {
         double maxFlow = algorithm.getMaxFlow(fromCrossroad, toCrossroad);
 
         List<Car> randomCars = new ArrayList<>();
-        for (int i = 0; i < random.nextInt(20); i++) {
+        for (int i = 0; i < random.nextInt(10000); i++) {
             randomCars.add(carService.getCarById(random.nextInt(20)));
         }
 
@@ -51,7 +51,7 @@ public class MainClass {
         for (Car car : randomCars) {
             sumWeight = sumWeight + car.getMaxWeight();
             if (sumWeight > maxFlow) {
-                LOGGER.error("ROADS ARE FULLY EMPTY OR HAVEN'T NEEDED CARRYING CAPACITY FOR EXISTING WAY OR TRANSPORT");
+                LOGGER.error("ROADS HAVEN'T NEEDED CARRYING CAPACITY TO TRANSMIT TRANSPORT FOR EXISTING WAY OR TRANSPORT");
                 break;
             }
             LOGGER.info("\n TRANSPORT " + car.getModel() + " CAN RIDE WITH WEIGHT " + car.getMaxWeight()+ "\n");
