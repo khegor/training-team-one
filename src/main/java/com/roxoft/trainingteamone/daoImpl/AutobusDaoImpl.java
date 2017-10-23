@@ -14,17 +14,19 @@ import java.util.List;
  */
 public class AutobusDaoImpl implements AutobusDao {
 
+    final static String namespace = "autobusMapper";
+
     public void createAutobus(Autobus autobus) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.insert("autobusMapper.createAutobus", autobus);
+        sqlSession.insert(namespace + ".createAutobus", autobus);
         sqlSession.close();
     }
 
     public Autobus getAutobusById(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        Autobus autobus = sqlSession.selectOne("autobusMapper.getAutobusById", id);
+        Autobus autobus = sqlSession.selectOne(namespace + ".getAutobusById", id);
         sqlSession.close();
         return autobus;
     }
@@ -32,7 +34,7 @@ public class AutobusDaoImpl implements AutobusDao {
     public List<Autobus> getAllAutobuses() {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        List<Autobus> autobuses = sqlSession.selectList("autobusMapper.getAllAutobuses");
+        List<Autobus> autobuses = sqlSession.selectList(namespace + ".getAllAutobuses");
         sqlSession.close();
         return autobuses;
     }
@@ -40,7 +42,7 @@ public class AutobusDaoImpl implements AutobusDao {
     public void updateAutobus(Autobus autobus) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.update("autobusMapper.updateAutobus", autobus);
+        sqlSession.update(namespace + ".updateAutobus", autobus);
         sqlSession.commit();
         sqlSession.close();
     }
@@ -48,7 +50,7 @@ public class AutobusDaoImpl implements AutobusDao {
     public void deleteAutobus(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.delete("autobusMapper.deleteAutobus", id);
+        sqlSession.delete(namespace + ".deleteAutobus", id);
         sqlSession.commit();
         sqlSession.close();
     }

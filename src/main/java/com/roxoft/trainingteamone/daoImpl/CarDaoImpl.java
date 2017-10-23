@@ -12,23 +12,25 @@ import java.util.List;
  */
 public class CarDaoImpl implements CarDao{
 
+    final static String namespace = "carMapper";
+
     public void createCar(Car car) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.insert("carMapper.createCar", car);
+        sqlSession.insert(namespace + ".createCar", car);
         sqlSession.close();
     }
 
     public Car getCarById(long id) {
         SqlSession sqlSession = SessionFactory.getSession();
-        Car car = sqlSession.selectOne("carMapper.getCarById", id);
+        Car car = sqlSession.selectOne(namespace + ".getCarById", id);
         sqlSession.close();
         return car;
     }
 
     public List<Car> getAllCars() {
         SqlSession sqlSession = SessionFactory.getSession();
-        List<Car> cars = sqlSession.selectList("carMapper.getAllCars");
+        List<Car> cars = sqlSession.selectList(namespace + ".getAllCars");
         sqlSession.close();
         return cars;
     }
@@ -36,7 +38,7 @@ public class CarDaoImpl implements CarDao{
     public void updateCar(Car car) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.update("carMapper.updateCar", car);
+        sqlSession.update(namespace + ".updateCar", car);
         sqlSession.commit();
         sqlSession.close();
     }
@@ -44,7 +46,7 @@ public class CarDaoImpl implements CarDao{
     public void deleteCar(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.delete("carMapper.deleteCar", id);
+        sqlSession.delete(namespace + ".deleteCar", id);
         sqlSession.commit();
         sqlSession.close();
 

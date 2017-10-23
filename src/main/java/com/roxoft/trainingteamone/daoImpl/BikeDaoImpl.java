@@ -12,18 +12,19 @@ import java.util.List;
  */
 public class BikeDaoImpl implements BikeDao{
 
+    final static String namespace = "bikeMapper";
 
     public void createBike(Bike bike) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.insert("bikeMapper.createBike", bike);
+        sqlSession.insert(namespace + ".createBike", bike);
         sqlSession.close();
     }
 
     public Bike getBikeById(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        Bike bike = sqlSession.selectOne("bikeMapper.getBikeById", id);
+        Bike bike = sqlSession.selectOne(namespace + ".getBikeById", id);
         sqlSession.close();
         return bike;
     }
@@ -31,7 +32,7 @@ public class BikeDaoImpl implements BikeDao{
     public List<Bike> getAllBikes() {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        List<Bike> bike = sqlSession.selectList("bikeMapper.getAllBikes");
+        List<Bike> bike = sqlSession.selectList(namespace + ".getAllBikes");
         sqlSession.close();
         return bike;
     }
@@ -39,7 +40,7 @@ public class BikeDaoImpl implements BikeDao{
     public void updateBike(Bike bike) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.update("bikeMapper.updateBike", bike);
+        sqlSession.update(namespace + ".updateBike", bike);
         sqlSession.commit();
         sqlSession.close();
     }
@@ -47,7 +48,7 @@ public class BikeDaoImpl implements BikeDao{
     public void deleteBike(long id) {
 
         SqlSession sqlSession = SessionFactory.getSession();
-        sqlSession.delete("bikeMapper.deleteBike", id);
+        sqlSession.delete(namespace + ".deleteBike", id);
         sqlSession.commit();
         sqlSession.close();
     }

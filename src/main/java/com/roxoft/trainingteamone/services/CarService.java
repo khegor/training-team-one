@@ -16,6 +16,7 @@ import java.util.List;
 public class CarService {
 
     CarDao carDao = new CarDaoImpl();
+
     AdditionalInformationService additionalInformationService = new AdditionalInformationService();
 
     public Car createCar(Car car) {
@@ -26,10 +27,7 @@ public class CarService {
     }
 
     public Car getCarById(long id) {
-        SqlSession sqlSession = SessionFactory.getSession();
-        Car car = sqlSession.selectOne("carMapper.getCarById", id);
-        sqlSession.close();
-        return car;
+        return carDao.getCarById(id);
     }
 
     public List<Car> getAllCars() {

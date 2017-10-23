@@ -54,7 +54,7 @@
         		roads
           	SET
           		NAME = #{name},
-				DAILY_CAPACITY = #{dailyCapacity},
+				DAILY_CAPACITY = #{dailyCarryingCapacity},
 				FROM_CROSSROAD_ID = #{fromCrossroad.id},
 				TO_CROSSROAD_ID = #{toCrossroad.id},
 				SEMAPHORES_COUNT = #{semaphoresCount}
