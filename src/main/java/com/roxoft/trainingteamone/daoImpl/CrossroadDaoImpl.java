@@ -14,7 +14,7 @@ import java.util.List;
 public class CrossroadDaoImpl implements CrossroadDao {
 
 	final static String namespace = "crossroadMapper";
-	
+
     public void createCrossroad(Crossroad crossroad) {
     	SqlSession sqlSession = SessionFactory.getSession();
         try{

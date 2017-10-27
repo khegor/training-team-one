@@ -41,8 +41,8 @@ public class MainClass {
         double maxFlow = algorithm.getMaxFlow(fromCrossroad, toCrossroad);
 
         List<Car> randomCars = new ArrayList<>();
-        for (int i = 0; i < random.nextInt(10000); i++) {
-            randomCars.add(carService.getCarById(random.nextInt(20)));
+        for (int i = 0; i < random.nextInt(100000); i++) {
+            randomCars.add(carService.getCarById(random.nextInt(20) + 1));
         }
 
         LOGGER.info("\n MAX ROAD CAPACITY FOR EXISTING PATH " + maxFlow);

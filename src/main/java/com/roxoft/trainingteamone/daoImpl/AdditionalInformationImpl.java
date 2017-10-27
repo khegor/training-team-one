@@ -14,6 +14,7 @@ public class AdditionalInformationImpl implements AdditionalInformationDao {
 
     final static String namespace = "additionalInformationMapper";
 
+
     public void createAdditionalInformation(AdditionalInformation additionalInformation) {
 
         SqlSession sqlSession = SessionFactory.getSession();
